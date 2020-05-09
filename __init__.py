@@ -17,38 +17,39 @@ __dependencies__ = []
 def handleQuery(query):
   if query.isTriggered and query.string.strip():
    	return [
-			Item(
+		Item(
     		id=__prettyname__,
      		text=__prettyname__,
-      	subtext="Submit task today",
-				completion=query.rawString,
-				actions = [
-					FuncAction(
-						"Submit task today",
-						lambda: sendRequest(query.string.strip(), "today"),
-					) 
-				],
-			),
-			Item(
+      		subtext="Submit task today",
+			completion=query.rawString,
+			actions = [
+				FuncAction(
+					"Submit task today",
+					lambda: sendRequest(query.string.strip(), "today"),
+				) 
+			]
+		), Item(
     		id=__prettyname__,
      		text=__prettyname__,
-      	subtext="Submit task tomorrow",
-				completion=query.rawString,
-				actions = [
-					FuncAction(
-						"Submit task today",
-						lambda: sendRequest(query.string.strip(), "tomorrow"),
-					) 
-				],
-			)
-
-		]
+      		subtext="Submit task tomorrow",
+			completion=query.rawString,
+			actions = [
+				FuncAction(
+					"Submit task today",
+					lambda: sendRequest(query.string.strip(), "tomorrow"),
+				)
+			],
+		)
+	]
 		
 
 def sendRequest(inpstr, date):
-	f = open("accesskey.txt", "r")
-	accessKey = f.read().splitlines()[0]
-	f.close()
+	# TODO: Get this block to work therefore allowing a config file
+	# with open("accesskey.txt", "r") as f:
+	# 	accessKey = f.read().splitlines()[0]
+	# 	f.close()
+
+	accessKey = ""
 
 	baseurl = "https://maker.ifttt.com/trigger/todoist_new_event/with/key/%s" % accessKey
 	myobj = {'value1':inpstr,'value2':date}
