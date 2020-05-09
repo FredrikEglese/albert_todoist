@@ -8,7 +8,7 @@ This extension uses [IFTTT](https://ifttt.com/) (more specifically [webhooks](ht
 
 ### Webhooks
 
-Go to [IFTTT Webhooks](ifttt.com/maker_webhooks) -> Documentation.
+Go to [IFTTT Webhooks](https://ifttt.com/maker_webhooks) -> Documentation.
 
 Coppy your key from the top of the page and paste it into the variable accesskey in the `__init__.py` file (near the bottom) or the `accesskey.txt` configfile if I have sorted that out yet. 
 
